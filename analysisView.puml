@@ -1,0 +1,8 @@
+@startuml
+
+class consoleView {
+    showBoard(game : Game) : void
+    move(game : Game) : void
+}
+
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+
+class Board
+enum Piece
+class Player
+class Square
+enum Color
+class Game
+
+class Square {
+    getFile() : char
+    getRank() : int
+    getCoordinate() : String
+}
+
+class Board {
+    movePiece(placement : Square, destination : Square) : void
+    getPiece(square : Square) : Piece
+    getTurn() : Color
+}
+
+class Player {
+    getName() : String
+    getColor() : Color
+}
+
+enum Piece {
+    getColor() : Color
+}
+
+class Game {
+    getWhite() : Player
+    getBlack() : Player
+    getBoard() : Board
+}
+
+@enduml

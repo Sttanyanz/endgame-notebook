@@ -1,0 +1,14 @@
+@startuml
+
+class MoveController
+class CurrentTurnController
+
+class MoveController{
+    movePiece(placement : Square, destination : Square) : void
+}
+
+class CurrentTurnController {
+    currentTurn(board: Board)) : Player
+}
+
+@enduml
