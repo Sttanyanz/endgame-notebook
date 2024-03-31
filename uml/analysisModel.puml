@@ -29,8 +29,7 @@ enum Piece {
 }
 
 class Game {
-    getWhite() : Player
-    getBlack() : Player
+    getPlayers() : Player[]
     getBoard() : Board
 }
 
