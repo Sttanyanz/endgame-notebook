@@ -1,11 +1,12 @@
 @startuml
 
 class Board
-enum Piece
+class Game
 class Player
 class Square
 enum Color
-class Game
+enum File
+enum Piece
 
 class Square {
     getFile() : char
@@ -31,6 +32,10 @@ enum Piece {
 class Game {
     getPlayers() : Player[]
     getBoard() : Board
+}
+
+enum File {
+    getIndex() : int
 }
 
 @enduml
