@@ -9,9 +9,8 @@ enum File
 enum Piece
 
 class Square {
-    getFile() : char
+    getFile() : File
     getRank() : int
-    getCoordinate() : String
 }
 
 class Board {
