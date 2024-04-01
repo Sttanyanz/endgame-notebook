@@ -8,12 +8,12 @@ class SquareTest {
 
     @Test
     void getFile() {
-        final File inputValue = File.a;
-        final File expectedValue = inputValue;
+        final int inputValue = 5;
+        final int expectedValue = inputValue;
 
         final Square square = new Square(inputValue, 1);
 
-        final File actualValue = square.getFile();
+        final int actualValue = square.getFile();
 
         assertEquals(expectedValue, actualValue);
     }
@@ -23,7 +23,7 @@ class SquareTest {
         final int inputValue = 3;
         final int expectedValue = inputValue;
 
-        final Square square = new Square(null, inputValue);
+        final Square square = new Square(1, inputValue);
 
         final int actualValue = square.getRank();
 

@@ -10,7 +10,7 @@ public class Board {
     }
 
     public Piece getPiece(final Square square){
-        return board[square.getFile().getIndex()][square.getRank()];
+        return board[square.getFile()][square.getRank()];
     }
 
     public Color getTurn() {
@@ -18,14 +18,14 @@ public class Board {
     }
 
     public void setPiece(final Square square, final Piece piece){
-        board[square.getFile().getIndex()][square.getRank()] = piece;
+        board[square.getFile()][square.getRank()] = piece;
     }
 
     public void movePiece(final Square placement, final Square destination){
-        Piece temp = board[placement.getFile().getIndex()][placement.getRank()];
-        board[placement.getFile().getIndex()][placement.getRank()] =
-                board[destination.getFile().getIndex()][destination.getRank()];
-        board[destination.getFile().getIndex()][destination.getRank()] = temp;
+        Piece temp = board[placement.getFile()][placement.getRank()];
+        board[placement.getFile()][placement.getRank()] =
+                board[destination.getFile()][destination.getRank()];
+        board[destination.getFile()][destination.getRank()] = temp;
     }
 
     public void switchTurn () {

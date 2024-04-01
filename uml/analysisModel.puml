@@ -5,7 +5,6 @@ class Game
 class Player
 class Square
 enum Color
-enum File
 enum Piece
 
 class Square {
@@ -37,8 +36,5 @@ class Game {
     getBoard() : Board
 }
 
-enum File {
-    getIndex() : int
-}
 
 @enduml

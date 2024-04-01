@@ -1,16 +1,16 @@
 package io.github.sttanyanz.enote.model;
 
 public class Square {
-    private final File file;
+    private final int file;
     private final int rank;
 
 
-    public Square(File file, int rank) {
+    public Square(int file, int rank) {
         this.file = file;
         this.rank = rank - 1;
     }
 
-    public File getFile() {
+    public int getFile() {
         return file;
     }
 

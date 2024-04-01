@@ -17,7 +17,7 @@ class BoardTest {
         final Board board = new Board();
         final Piece inputPiece = Piece.whiteQueen;
         final Piece expectedPiece = inputPiece;
-        final Square inputSquare = new Square(File.f, 7);
+        final Square inputSquare = new Square(6, 7);
         board.setPiece(inputSquare,inputPiece);
         final Piece actualPiece = board.getPiece(inputSquare);
         assertEquals(expectedPiece, actualPiece);
@@ -28,8 +28,8 @@ class BoardTest {
         final Board board = new Board();
         final Piece inputPiece = Piece.whiteQueen;
         final Piece expectedPiece = inputPiece;
-        final Square inputPlacement = new Square(File.a, 1);
-        final Square inputDestination = new Square(File.d, 4);
+        final Square inputPlacement = new Square(0, 1);
+        final Square inputDestination = new Square(3, 4);
         board.setPiece(inputPlacement, inputPiece);
         board.movePiece(inputPlacement, inputDestination);
         final Piece actualPiece = board.getPiece(inputDestination);
