@@ -1,5 +1,6 @@
 package io.github.sttanyanz.enote.model;
 
+import io.github.sttanyanz.enote.model.exceptions.InvalidSquareException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class BoardTest {
 
     @Test
-    void getSize() {
+    void testGetSize() {
         final Board board = new Board();
         assertEquals(8, board.getSize());
     }
 
     @Test
-    void setPiece() {
+    void testSetPiece() throws InvalidSquareException {
         final Board board = new Board();
         final Piece inputPiece = Piece.whiteQueen;
         final Piece expectedPiece = inputPiece;
@@ -24,7 +25,7 @@ class BoardTest {
     }
 
     @Test
-    void movePiece() {
+    void testMovePiece() throws InvalidSquareException {
         final Board board = new Board();
         final Piece inputPiece = Piece.whiteQueen;
         final Piece expectedPiece = inputPiece;
@@ -37,7 +38,7 @@ class BoardTest {
     }
 
     @Test
-    void switchTurn() {
+    void testSwitchTurn() {
         final Board board = new Board();
         final Color expectedTurn = Color.black;
         board.switchTurn();

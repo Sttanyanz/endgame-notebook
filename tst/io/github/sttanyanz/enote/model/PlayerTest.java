@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerTest {
 
     @org.junit.jupiter.api.Test
-    void getName() {
+    void testGetName() {
         final String inputValue = "Niki";
         final String expectedValue = inputValue;
 
@@ -17,7 +17,7 @@ class PlayerTest {
     }
 
     @org.junit.jupiter.api.Test
-    void getColor() {
+    void testGetColor() {
         final Color inputValue = Color.white;
         final Color expectedValue = inputValue;
 

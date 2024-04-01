@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class GameTest {
 
     @Test
-    void getWhite() {
+    void testGetWhite() {
         final Player inputWhitePlayer = new Player("Emily", Color.white);
         final Player expectedWhitePlayer = inputWhitePlayer;
         final Game game = new Game(inputWhitePlayer, null, null);
@@ -16,7 +16,7 @@ class GameTest {
     }
 
     @Test
-    void getBlack() {
+    void testGetBlack() {
         final Player inputBlackPlayer = new Player("Sarah", Color.white);
         final Player expectedBlackPlayer = inputBlackPlayer;
         final Game game = new Game(null, inputBlackPlayer, null);
@@ -25,7 +25,7 @@ class GameTest {
     }
 
     @Test
-    void getBoard() {
+    void testGetBoard() {
         final Board inputBoard = new Board();
         final Board expectedBoard = inputBoard;
         final Game game = new Game(null, null, inputBoard);

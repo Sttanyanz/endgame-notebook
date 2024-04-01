@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SquareTest {
 
     @Test
-    void getFile() {
+    void testGetFile() {
         final int inputValue = 5;
         final int expectedValue = inputValue;
 
@@ -19,7 +19,7 @@ class SquareTest {
     }
 
     @Test
-    void getRank() {
+    void testGetRank() {
         final int inputValue = 3;
         final int expectedValue = inputValue;
 
