@@ -2,5 +2,6 @@
 
 class AnalysisBasicException
 class InvalidMoveException
+class InvalidSquareException
 
 @enduml
