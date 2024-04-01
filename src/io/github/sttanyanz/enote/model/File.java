@@ -1,8 +1,8 @@
 package io.github.sttanyanz.enote.model;
 
 public enum File {
-    a((byte) 1), b((byte) 2), c((byte) 3), d((byte) 4),
-    e((byte) 5), f((byte) 6), g((byte) 7), h((byte) 8);
+    a((byte) 0), b((byte) 1), c((byte) 2), d((byte) 3),
+    e((byte) 4), f((byte) 5), g((byte) 6), h((byte) 7);
 
     private final byte index;
 
