@@ -14,9 +14,12 @@ class Square {
 }
 
 class Board {
-    movePiece(placement : Square, destination : Square) : void
+    getSize() : int
     getPiece(square : Square) : Piece
     getTurn() : Color
+    setPiece(square : Square, piece : Piece) : void
+    movePiece(placement : Square, destination : Square) : void
+    switchTurn() : void
 }
 
 class Player {
