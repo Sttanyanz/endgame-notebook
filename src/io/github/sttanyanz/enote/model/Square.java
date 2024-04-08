@@ -7,7 +7,7 @@ public class Square {
 
     public Square(int file, int rank) {
         this.file = file;
-        this.rank = rank - 1;
+        this.rank = rank;
     }
 
     public int getFile() {
