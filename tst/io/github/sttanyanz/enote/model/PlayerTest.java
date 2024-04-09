@@ -10,7 +10,6 @@ class PlayerTest {
         final String expectedValue = inputValue;
 
         final Player player = new Player(inputValue, null);
-
         final String actualValue = player.getName();
 
         assertEquals(expectedValue, actualValue);
@@ -22,7 +21,6 @@ class PlayerTest {
         final Color expectedValue = inputValue;
 
         final Player player = new Player(null, inputValue);
-
         final Color actualValue = player.getColor();
 
         assertEquals(expectedValue, actualValue);

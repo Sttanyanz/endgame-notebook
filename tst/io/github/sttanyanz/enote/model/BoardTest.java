@@ -10,6 +10,7 @@ class BoardTest {
     @Test
     void testGetSize() {
         final Board board = new Board();
+
         assertEquals(8, board.getSize());
     }
 
@@ -19,8 +20,10 @@ class BoardTest {
         final Piece inputPiece = Piece.whiteQueen;
         final Piece expectedPiece = inputPiece;
         final Square inputSquare = new Square(6, 7);
+
         board.setPiece(inputSquare,inputPiece);
         final Piece actualPiece = board.getPiece(inputSquare);
+
         assertEquals(expectedPiece, actualPiece);
     }
 
@@ -31,9 +34,11 @@ class BoardTest {
         final Piece expectedPiece = inputPiece;
         final Square inputPlacement = new Square(0, 1);
         final Square inputDestination = new Square(3, 4);
+
         board.setPiece(inputPlacement, inputPiece);
         board.movePiece(inputPlacement, inputDestination);
         final Piece actualPiece = board.getPiece(inputDestination);
+
         assertEquals(expectedPiece, actualPiece);
     }
 
@@ -41,8 +46,10 @@ class BoardTest {
     void testSwitchTurn() {
         final Board board = new Board();
         final Color expectedTurn = Color.black;
+
         board.switchTurn();
         final Color actualTurn = board.getTurn();
+
         assertEquals(expectedTurn, actualTurn);
     }
 
@@ -66,6 +73,7 @@ class BoardTest {
             fail();
         } catch (final InvalidSquareException e) {}
     }
+
     @Test
     void testGetPieceWhenRankIsLessThanZero() throws InvalidSquareException {
         final Board board = new Board();
@@ -76,6 +84,7 @@ class BoardTest {
             fail();
         } catch (final InvalidSquareException e) {}
     }
+
     @Test
     void testGetPieceWhenFileIsAboveSize() throws InvalidSquareException {
         final Board board = new Board();
@@ -86,6 +95,7 @@ class BoardTest {
             fail();
         } catch (final InvalidSquareException e) {}
     }
+
     @Test
     void testGetPieceWhenRankIsAboveSize() throws InvalidSquareException {
         final Board board = new Board();

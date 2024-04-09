@@ -12,7 +12,6 @@ class SquareTest {
         final int expectedValue = inputValue;
 
         final Square square = new Square(inputValue, 1);
-
         final int actualValue = square.getFile();
 
         assertEquals(expectedValue, actualValue);
@@ -24,7 +23,6 @@ class SquareTest {
         final int expectedValue = inputValue;
 
         final Square square = new Square(1, inputValue);
-
         final int actualValue = square.getRank();
 
         assertEquals(expectedValue, actualValue);
