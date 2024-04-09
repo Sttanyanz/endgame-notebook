@@ -45,4 +45,55 @@ class BoardTest {
         final Color actualTurn = board.getTurn();
         assertEquals(expectedTurn, actualTurn);
     }
+
+    @Test
+    void testGetPieceWhenSquareIsEmpty() throws InvalidSquareException {
+        final Board board = new Board();
+        final Square inputSquare = new Square(1, 1);
+
+        final Piece actualPiece = board.getPiece(inputSquare);
+
+        assertNull(actualPiece);
+    }
+
+    @Test
+    void testGetPieceWhenFileIsLessThanZero() throws InvalidSquareException {
+        final Board board = new Board();
+        final Square inputSquare = new Square(-1, 0);
+
+        try {
+            board.getPiece(inputSquare);
+            fail();
+        } catch (final InvalidSquareException e) {}
+    }
+    @Test
+    void testGetPieceWhenRankIsLessThanZero() throws InvalidSquareException {
+        final Board board = new Board();
+        final Square inputSquare = new Square(0, -1);
+
+        try {
+            board.getPiece(inputSquare);
+            fail();
+        } catch (final InvalidSquareException e) {}
+    }
+    @Test
+    void testGetPieceWhenFileIsAboveSize() throws InvalidSquareException {
+        final Board board = new Board();
+        final Square inputSquare = new Square(10, 0);
+
+        try {
+            board.getPiece(inputSquare);
+            fail();
+        } catch (final InvalidSquareException e) {}
+    }
+    @Test
+    void testGetPieceWhenRankIsAboveSize() throws InvalidSquareException {
+        final Board board = new Board();
+        final Square inputSquare = new Square(0, 10);
+
+        try {
+            board.getPiece(inputSquare);
+            fail();
+        } catch (final InvalidSquareException e) {}
+    }
 }
