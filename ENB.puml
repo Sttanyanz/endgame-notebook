@@ -1,0 +1,92 @@
+@startuml
+page 1x4
+
+package enb {
+    package model {
+        class Board
+        class Game
+        class Player
+        class Square
+        enum Color
+        package exceptions {
+            skinparam groupInheritance 3
+            abstract class AbstractENBException
+            abstract class AbstractInvalidMoveException
+            class InvalidPawnMoveException
+            class InvalidKnightMoveException
+            class InvalidBishopMoveException
+            class InvalidRookMoveException
+            class InvalidQueenMoveException
+            class InvalidKingMoveException
+            class InvalidSquareException
+            AbstractENBException <|-- AbstractInvalidMoveException
+            AbstractENBException <|-- InvalidSquareException
+            AbstractInvalidMoveException <|-- InvalidPawnMoveException
+            AbstractInvalidMoveException <|-- InvalidKnightMoveException
+            AbstractInvalidMoveException <|-- InvalidBishopMoveException
+            AbstractInvalidMoveException <|-- InvalidRookMoveException
+            AbstractInvalidMoveException <|-- InvalidQueenMoveException
+            AbstractInvalidMoveException <|-- InvalidKingMoveException
+        }
+        enum Piece
+    }
+
+    Piece [*] *-- [1] Color
+    Player [*] *-- [1] Color
+    Board [1] o-- [*] Square
+    Game [1] -left- [1] Board
+    Game [1] -- [2] Player
+    Board [1] -- [*] Piece
+
+    package model {
+        class Square {
+            getFile() : File
+            getRank() : int
+        }
+
+        class Board {
+            getSize() : int
+            getPiece(square : Square) : Piece
+            getTurn() : Color
+            setPiece(square : Square, piece : Piece) : void
+            movePiece(placement : Square, destination : Square) : void
+            switchTurn() : void
+        }
+
+        class Player {
+            getName() : String
+            getColor() : Color
+        }
+
+        enum Piece {
+            getColor() : Color
+        }
+
+        class Game {
+            getWhite() : Player
+            getBlack() : Player
+            getBoard() : Board
+        }
+    }
+
+    package controller {
+        class MoveController
+        class CurrentTurnController
+
+        class MoveController{
+            movePiece(board: Board, placement : Square, destination : Square) : void
+        }
+
+        class CurrentTurnController {
+            getCurrentTurn(board: Board)) : Color
+        }
+    }
+
+    package view {
+        class consoleView {
+            showBoard(game : Game) : void
+            move(game : Game) : void
+        }
+    }
+}
+@enduml
