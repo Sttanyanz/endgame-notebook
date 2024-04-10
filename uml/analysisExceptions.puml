@@ -1,7 +1,14 @@
 @startuml
 
-class AbstractENBException
-class InvalidMoveException
+abstract class AbstractENBException
+abstract class InvalidMoveException
+class InvalidPawnMoveException
+class InvalidKnightMoveException
+class InvalidBishopMoveException
+class InvalidRookMoveException
+class InvalidQueenMoveException
+class InvalidKingMoveException
+
 class InvalidSquareException
 
 
