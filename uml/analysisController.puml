@@ -4,11 +4,11 @@ class MoveController
 class CurrentTurnController
 
 class MoveController{
-    movePiece(placement : Square, destination : Square) : void
+    movePiece(board: Board, placement : Square, destination : Square) : void
 }
 
 class CurrentTurnController {
-    currentTurn(board: Board)) : Player
+    getCurrentTurn(board: Board)) : Color
 }
 
 @enduml
