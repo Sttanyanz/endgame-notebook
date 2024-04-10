@@ -1,4 +1,4 @@
-package io.github.sttanyanz.enote.model;
+package io.github.sttanyanz.enb.model;
 
 public class Square {
     private final int file;

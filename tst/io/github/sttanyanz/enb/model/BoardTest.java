@@ -1,6 +1,6 @@
-package io.github.sttanyanz.enote.model;
+package io.github.sttanyanz.enb.model;
 
-import io.github.sttanyanz.enote.model.exceptions.InvalidSquareException;
+import io.github.sttanyanz.enb.model.exceptions.InvalidSquareException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

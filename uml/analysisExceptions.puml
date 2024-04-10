@@ -1,7 +1,8 @@
 @startuml
 
-class AnalysisBasicException
+class AbstractENBException
 class InvalidMoveException
 class InvalidSquareException
+
 
 @enduml

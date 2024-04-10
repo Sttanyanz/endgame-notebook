@@ -1,8 +1,8 @@
-package io.github.sttanyanz.enote.controller;
+package io.github.sttanyanz.enb.controller;
 
-import io.github.sttanyanz.enote.model.Board;
-import io.github.sttanyanz.enote.model.Square;
-import io.github.sttanyanz.enote.model.exceptions.InvalidSquareException;
+import io.github.sttanyanz.enb.model.Board;
+import io.github.sttanyanz.enb.model.Square;
+import io.github.sttanyanz.enb.model.exceptions.InvalidSquareException;
 
 public class MoveController {
 
