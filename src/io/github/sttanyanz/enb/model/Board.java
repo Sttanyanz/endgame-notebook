@@ -14,7 +14,7 @@ public class Board {
     }
 
     public Piece getPiece(final Square square) throws InvalidSquareException {
-        if (!checkSquare(square)) {
+        if (!boundCheckSquare(square)) {
             throw new InvalidSquareException();
         }
         return board[square.getFile()][square.getRank()];
@@ -25,14 +25,14 @@ public class Board {
     }
 
     public void setPiece(final Square square, final Piece piece) throws InvalidSquareException {
-        if (!checkSquare(square)) {
+        if (!boundCheckSquare(square)) {
             throw new InvalidSquareException();
         }
         board[square.getFile()][square.getRank()] = piece;
     }
 
     public void movePiece(final Square placement, final Square destination) throws InvalidSquareException {
-        if (!checkSquare(placement) || !checkSquare(destination)) {
+        if (!boundCheckSquare(placement) || !boundCheckSquare(destination)) {
             throw new InvalidSquareException();
         }
         Piece temp = board[placement.getFile()][placement.getRank()];
@@ -46,11 +46,11 @@ public class Board {
         else turn = Color.white;
     }
 
-    public boolean checkSquare(final Square square){
-        return checkIndex(square.getFile()) && checkIndex(square.getRank());
+    private boolean boundCheckSquare(final Square square){
+        return boundCheckIndex(square.getFile()) && boundCheckIndex(square.getRank());
     }
 
-    public boolean checkIndex(final int index){
+    private boolean boundCheckIndex(final int index){
         return index >= MIN_COORDINATE && index < MAX_COORDINATE;
     }
 
