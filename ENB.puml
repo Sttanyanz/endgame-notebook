@@ -1,5 +1,16 @@
 @startuml
-page 1x4
+skinparam defaultFontSize 10
+skinparam BackgroundColor DimGray
+skinparam ClassAttributeFontColor LightGreen
+skinparam PackageFontColor coral
+skinparam ClassFontColor coral
+skinparam package {
+BackgroundColor #403F49/#604F59
+}
+skinparam class {
+BackgroundColor #282C34/#483C44
+}
+
 
 package enb {
     package model {
@@ -8,6 +19,8 @@ package enb {
         class Player
         class Square
         enum Color
+        enum PieceName
+        class Piece
         package exceptions {
             skinparam groupInheritance 3
             abstract class AbstractENBException
@@ -28,7 +41,6 @@ package enb {
             AbstractInvalidMoveException <|-- InvalidQueenMoveException
             AbstractInvalidMoveException <|-- InvalidKingMoveException
         }
-        enum Piece
     }
 
     Piece [*] *-- [1] Color
@@ -37,6 +49,7 @@ package enb {
     Game [1] -left- [1] Board
     Game [1] -- [2] Player
     Board [1] -- [*] Piece
+    Piece [*] *-- [1] PieceName
 
     package model {
         class Square {
@@ -58,8 +71,9 @@ package enb {
             getColor() : Color
         }
 
-        enum Piece {
+        class Piece {
             getColor() : Color
+            getName() : PieceName
         }
 
         class Game {
