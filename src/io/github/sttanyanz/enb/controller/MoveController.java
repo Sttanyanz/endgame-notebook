@@ -11,4 +11,5 @@ public class MoveController {
                            Square destination) throws InvalidSquareException {
         board.movePiece(placement, destination);
     }
+
 }
