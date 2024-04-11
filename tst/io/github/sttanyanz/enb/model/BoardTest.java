@@ -17,7 +17,7 @@ class BoardTest {
     @Test
     void testSetPiece() throws InvalidSquareException {
         final Board board = new Board();
-        final Piece inputPiece = Piece.whiteQueen;
+        final Piece inputPiece = new Piece(PieceName.king, Color.black);
         final Piece expectedPiece = inputPiece;
         final Square inputSquare = new Square(6, 7);
 
@@ -30,7 +30,7 @@ class BoardTest {
     @Test
     void testMovePiece() throws InvalidSquareException {
         final Board board = new Board();
-        final Piece inputPiece = Piece.whiteQueen;
+        final Piece inputPiece = new Piece(PieceName.queen, Color.white);
         final Piece expectedPiece = inputPiece;
         final Square inputPlacement = new Square(0, 1);
         final Square inputDestination = new Square(3, 4);

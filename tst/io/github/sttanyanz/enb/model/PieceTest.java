@@ -8,7 +8,7 @@ class PieceTest {
 
     @Test
     void testgetColor() {
-        final Piece inputPiece = Piece.whitePawn;
+        final Piece inputPiece = new Piece(PieceName.pawn, Color.white);
         final Color expectedColor = Color.white;
         final Color actualColor = inputPiece.getColor();
 
