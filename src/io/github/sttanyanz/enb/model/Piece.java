@@ -13,5 +13,7 @@ public class Piece {
         return color;
     }
 
-    public PieceName getName() { return name; }
+    public PieceName getName() {
+        return name;
+    }
 }
