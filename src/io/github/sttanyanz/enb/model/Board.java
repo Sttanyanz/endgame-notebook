@@ -35,10 +35,9 @@ public class Board {
         if (!boundCheckSquare(placement) || !boundCheckSquare(destination)) {
             throw new InvalidSquareException();
         }
-        Piece temp = board[placement.getFile()][placement.getRank()];
-        board[placement.getFile()][placement.getRank()] =
-                board[destination.getFile()][destination.getRank()];
-        board[destination.getFile()][destination.getRank()] = temp;
+        board[destination.getFile()][destination.getRank()] =
+                board[placement.getFile()][placement.getRank()];
+        board[placement.getFile()][placement.getRank()] = null;
     }
 
     public void switchTurn () {
