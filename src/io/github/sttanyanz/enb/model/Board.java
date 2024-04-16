@@ -39,7 +39,7 @@ public class Board {
         if (!checkSquareBounds(originSquare) || !checkSquareBounds(destinationSquare)) {
             throw new InvalidSquareException();
         }
-        if (getPiece(originSquare) == null) {
+        if (isSquareEmpty(originSquare)) {
             throw new EmptySquareException();
         }
         board[destinationSquare.getFile()][destinationSquare.getRank()] =
@@ -52,7 +52,7 @@ public class Board {
         else turn = Color.white;
     }
 
-    public boolean isSquareEmpty(final Square square) throws InvalidSquareException {
+    private boolean isSquareEmpty(final Square square) throws InvalidSquareException {
         return getPiece(square) == null;
     }
 
