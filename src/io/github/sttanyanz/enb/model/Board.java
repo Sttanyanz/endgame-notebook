@@ -46,8 +46,8 @@ public class Board {
         else turn = Color.white;
     }
 
-    public boolean isSquareEmpty(final Square square){
-        return board[square.getFile()][square.getRank()] == null;
+    public boolean isSquareEmpty(final Square square) throws InvalidSquareException {
+        return getPiece(square) == null;
     }
 
     private boolean checkSquareBounds(final Square square){
