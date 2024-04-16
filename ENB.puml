@@ -24,22 +24,17 @@ package enb {
         package exceptions {
             skinparam groupInheritance 3
             abstract class AbstractENBException
-            abstract class AbstractInvalidMoveException
-            class InvalidPawnMoveException
-            class InvalidKnightMoveException
-            class InvalidBishopMoveException
-            class InvalidRookMoveException
-            class InvalidQueenMoveException
-            class InvalidKingMoveException
             class InvalidSquareException
-            AbstractENBException <|-- AbstractInvalidMoveException
+            class EmptySquareException
+            class MoveOnSameSquareException
+            abstract class AbstractIllegalMoveException
+            class UnreachableSquareForPieceNameException
+
             AbstractENBException <|-- InvalidSquareException
-            AbstractInvalidMoveException <|-- InvalidPawnMoveException
-            AbstractInvalidMoveException <|-- InvalidKnightMoveException
-            AbstractInvalidMoveException <|-- InvalidBishopMoveException
-            AbstractInvalidMoveException <|-- InvalidRookMoveException
-            AbstractInvalidMoveException <|-- InvalidQueenMoveException
-            AbstractInvalidMoveException <|-- InvalidKingMoveException
+            AbstractENBException <|-- EmptySquareException
+            AbstractENBException <|-- MoveOnSameSquareException
+            AbstractENBException <|-- AbstractIllegalMoveException
+            AbstractIllegalMoveException <|-- UnreachableSquareForPieceNameException
         }
     }
 
@@ -62,7 +57,7 @@ package enb {
             getPiece(square : Square) : Piece
             getTurn() : Color
             setPiece(square : Square, piece : Piece) : void
-            movePiece(placement : Square, destination : Square) : void
+            movePiece(originSquare : Square, destinationSquare : Square) : void
             switchTurn() : void
         }
 
@@ -77,8 +72,8 @@ package enb {
         }
 
         class Game {
-            getWhite() : Player
-            getBlack() : Player
+            getWhitePlayer() : Player
+            getBlackPlayer() : Player
             getBoard() : Board
         }
     }
@@ -88,7 +83,7 @@ package enb {
         class CurrentTurnController
 
         class MoveController{
-            movePiece(board: Board, placement : Square, destination : Square) : void
+            movePiece(board: Board, originSquare : Square, destinationSquare : Square) : void
         }
 
         class CurrentTurnController {
