@@ -44,6 +44,20 @@ class BoardTest {
     }
 
     @Test
+    void testCheckIfOriginSquareIsEmptyAfterMovingPiece() throws InvalidSquareException, EmptySquareException {
+        final Board board = new Board();
+        final Piece inputPiece = new Piece(PieceName.bishop, Color.black);
+        final Square inputOriginSquare = new Square(0, 1);
+        final Square inputDestinationSquare = new Square(3, 4);
+
+        board.setPiece(inputOriginSquare, inputPiece);
+        board.movePiece(inputOriginSquare, inputDestinationSquare);
+        final Piece actualOriginSquare = board.getPiece(inputOriginSquare);
+
+        assertNull(actualOriginSquare);
+    }
+
+    @Test
     void testSwitchTurn() {
         final Board board = new Board();
         final Color expectedTurn = Color.black;
@@ -106,5 +120,17 @@ class BoardTest {
             board.getPiece(inputSquare);
             fail();
         } catch (final InvalidSquareException e) {}
+    }
+
+    @Test
+    void testMovePieceFromEmptySquare() throws InvalidSquareException {
+        final Board board = new Board();
+        final Square inputOriginSquare = new Square(6, 4);
+        final Square inputDestinationSquare = new Square(3, 2);
+
+        try {
+            board.movePiece(inputOriginSquare, inputDestinationSquare);
+            fail();
+        } catch (final EmptySquareException e) {}
     }
 }
