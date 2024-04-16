@@ -20,32 +20,38 @@ public class MoveController {
             EmptySquareException, MoveOnSameSquareException {
         switch (board.getPiece(originSquare).getName()) {
             case pawn -> {
-                if (!isPawnMoveLegal(board, originSquare, destinationSquare)) {
+                if (!isPawnMoveLegal(board,
+                        originSquare, destinationSquare)) {
                         throw new UnreachableSquareForPieceNameException();
                 }
             }
             case knight -> {
-                if (!isKnightMoveLegal(board, originSquare, destinationSquare)) {
+                if (!isKnightMoveLegal(board,
+                        originSquare, destinationSquare)) {
                     throw new UnreachableSquareForPieceNameException();
                 }
             }
             case bishop -> {
-                if (!isBishopMoveLegal(board, originSquare, destinationSquare)) {
+                if (!isBishopMoveLegal(board,
+                        originSquare, destinationSquare)) {
                     throw new UnreachableSquareForPieceNameException();
                 }
             }
             case rook -> {
-                if (!isRookMoveLegal(board, originSquare, destinationSquare)) {
+                if (!isRookMoveLegal(board,
+                        originSquare, destinationSquare)) {
                     throw new UnreachableSquareForPieceNameException();
                 }
             }
             case queen -> {
-                if (!isQueenMoveLegal(board, originSquare, destinationSquare)) {
+                if (!isQueenMoveLegal(board,
+                        originSquare, destinationSquare)) {
                     throw new UnreachableSquareForPieceNameException();
                 }
             }
             case king -> {
-                if (!isKingMoveLegal(board, originSquare, destinationSquare)) {
+                if (!isKingMoveLegal(board,
+                        originSquare, destinationSquare)) {
                     throw new UnreachableSquareForPieceNameException();
                 }
             }
@@ -92,7 +98,8 @@ public class MoveController {
             throws InvalidSquareException
     {
         return isDestinationSquareInFrontOfPiece
-                (board.getPiece(originSquare).getColor(), originSquare, destinationSquare);
+                (board.getPiece(originSquare).getColor(),
+                        originSquare, destinationSquare);
 
     }
 
@@ -120,8 +127,10 @@ public class MoveController {
 
     private boolean areSquaresWithinKnightReach(final Square squareOne,
                                                 final Square squareTwo){
-        final int fileDisplacement = abs(squareOne.getFile() - squareTwo.getFile());
-        final int rankDisplacement = abs(squareOne.getRank() - squareTwo.getRank());
+        final int fileDisplacement =
+                abs(squareOne.getFile() - squareTwo.getFile());
+        final int rankDisplacement =
+                abs(squareOne.getRank() - squareTwo.getRank());
 
         return min(fileDisplacement, rankDisplacement) == 1
                 && max(fileDisplacement, rankDisplacement) == 2;

@@ -27,7 +27,8 @@ public class Board {
         return turn;
     }
 
-    public void setPiece(final Square square, final Piece piece) throws InvalidSquareException {
+    public void setPiece(final Square square, final Piece piece)
+            throws InvalidSquareException {
         if (!checkSquareBounds(square)) {
             throw new InvalidSquareException();
         }
@@ -61,12 +62,14 @@ public class Board {
         else turn = Color.white;
     }
 
-    private boolean isSquareEmpty(final Square square) throws InvalidSquareException {
+    private boolean isSquareEmpty(final Square square)
+            throws InvalidSquareException {
         return getPiece(square) == null;
     }
 
     private boolean checkSquareBounds(final Square square){
-        return checkIndexBounds(square.getFile()) && checkIndexBounds(square.getRank());
+        return checkIndexBounds(square.getFile())
+                && checkIndexBounds(square.getRank());
     }
 
     private boolean checkIndexBounds(final int index){
