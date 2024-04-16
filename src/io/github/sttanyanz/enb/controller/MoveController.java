@@ -3,6 +3,7 @@ package io.github.sttanyanz.enb.controller;
 import io.github.sttanyanz.enb.model.Board;
 import io.github.sttanyanz.enb.model.Color;
 import io.github.sttanyanz.enb.model.Square;
+import io.github.sttanyanz.enb.model.exceptions.EmptySquareException;
 import io.github.sttanyanz.enb.model.exceptions.IllegalMoveException;
 import io.github.sttanyanz.enb.model.exceptions.InvalidSquareException;
 
@@ -14,7 +15,11 @@ public class MoveController {
 
     public void movePiece (Board board,
                            Square originSquare,
-                           Square destinationSquare) throws InvalidSquareException, IllegalMoveException {
+                           Square destinationSquare)
+            throws InvalidSquareException,
+            IllegalMoveException,
+            EmptySquareException
+    {
         switch (board.getPiece(originSquare).getName()) {
             case pawn -> {
                 if (!isPawnMoveLegal(board, originSquare, destinationSquare)) {

@@ -1,5 +1,6 @@
 package io.github.sttanyanz.enb.model;
 
+import io.github.sttanyanz.enb.model.exceptions.EmptySquareException;
 import io.github.sttanyanz.enb.model.exceptions.InvalidSquareException;
 import org.junit.jupiter.api.Test;
 
@@ -28,7 +29,7 @@ class BoardTest {
     }
 
     @Test
-    void testMovePiece() throws InvalidSquareException {
+    void testMovePiece() throws InvalidSquareException, EmptySquareException {
         final Board board = new Board();
         final Piece inputPiece = new Piece(PieceName.queen, Color.white);
         final Piece expectedPiece = inputPiece;

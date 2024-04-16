@@ -1,5 +1,6 @@
 package io.github.sttanyanz.enb.model;
 
+import io.github.sttanyanz.enb.model.exceptions.EmptySquareException;
 import io.github.sttanyanz.enb.model.exceptions.InvalidSquareException;
 
 public class Board {
@@ -32,9 +33,14 @@ public class Board {
         board[square.getFile()][square.getRank()] = piece;
     }
 
-    public void movePiece(final Square originSquare, final Square destinationSquare) throws InvalidSquareException {
+    public void movePiece(final Square originSquare, final Square destinationSquare)
+            throws InvalidSquareException, EmptySquareException
+    {
         if (!checkSquareBounds(originSquare) || !checkSquareBounds(destinationSquare)) {
             throw new InvalidSquareException();
+        }
+        if (getPiece(originSquare) == null) {
+            throw new EmptySquareException();
         }
         board[destinationSquare.getFile()][destinationSquare.getRank()] =
                 board[originSquare.getFile()][originSquare.getRank()];
