@@ -9,6 +9,7 @@ public class Board {
     private Color turn = Color.white;
     private final Piece[][] board = new Piece[BOARD_SIZE][BOARD_SIZE];
 
+
     public int getSize(){
         return Board.BOARD_SIZE;
     }
@@ -43,6 +44,10 @@ public class Board {
     public void switchTurn () {
         if (turn == Color.white) turn = Color.black;
         else turn = Color.white;
+    }
+
+    public boolean isSquareEmpty(final Square square){
+        return board[square.getFile()][square.getRank()] == null;
     }
 
     private boolean boundCheckSquare(final Square square){
