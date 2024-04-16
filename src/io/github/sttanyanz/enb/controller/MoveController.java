@@ -4,10 +4,8 @@ import io.github.sttanyanz.enb.model.Board;
 import io.github.sttanyanz.enb.model.Color;
 import io.github.sttanyanz.enb.model.Square;
 import io.github.sttanyanz.enb.model.exceptions.EmptySquareException;
-import io.github.sttanyanz.enb.model.exceptions.IllegalMoveException;
+import io.github.sttanyanz.enb.model.exceptions.UnreachableSquareForPieceNameException;
 import io.github.sttanyanz.enb.model.exceptions.InvalidSquareException;
-
-import javax.swing.text.PlainDocument;
 
 import static java.lang.Math.*;
 
@@ -17,38 +15,38 @@ public class MoveController {
                            Square originSquare,
                            Square destinationSquare)
             throws InvalidSquareException,
-            IllegalMoveException,
+            UnreachableSquareForPieceNameException,
             EmptySquareException
     {
         switch (board.getPiece(originSquare).getName()) {
             case pawn -> {
                 if (!isPawnMoveLegal(board, originSquare, destinationSquare)) {
-                        throw new IllegalMoveException();
+                        throw new UnreachableSquareForPieceNameException();
                 }
             }
             case knight -> {
                 if (!isKnightMoveLegal(board, originSquare, destinationSquare)) {
-                    throw new IllegalMoveException();
+                    throw new UnreachableSquareForPieceNameException();
                 }
             }
             case bishop -> {
                 if (!isBishopMoveLegal(board, originSquare, destinationSquare)) {
-                    throw new IllegalMoveException();
+                    throw new UnreachableSquareForPieceNameException();
                 }
             }
             case rook -> {
                 if (!isRookMoveLegal(board, originSquare, destinationSquare)) {
-                    throw new IllegalMoveException();
+                    throw new UnreachableSquareForPieceNameException();
                 }
             }
             case queen -> {
                 if (!isQueenMoveLegal(board, originSquare, destinationSquare)) {
-                    throw new IllegalMoveException();
+                    throw new UnreachableSquareForPieceNameException();
                 }
             }
             case king -> {
                 if (!isKingMoveLegal(board, originSquare, destinationSquare)) {
-                    throw new IllegalMoveException();
+                    throw new UnreachableSquareForPieceNameException();
                 }
             }
         }
