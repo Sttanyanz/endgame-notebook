@@ -65,7 +65,7 @@ class BoardTest {
     }
 
     @Test
-    void testGetPieceWhenFileIsLessThanZero() throws InvalidSquareException {
+    void testGetPieceWhenFileIsLessThanZero(){
         final Board board = new Board();
         final Square inputSquare = new Square(-1, 0);
 
@@ -76,7 +76,7 @@ class BoardTest {
     }
 
     @Test
-    void testGetPieceWhenRankIsLessThanZero() throws InvalidSquareException {
+    void testGetPieceWhenRankIsLessThanZero(){
         final Board board = new Board();
         final Square inputSquare = new Square(0, -1);
 
@@ -87,7 +87,7 @@ class BoardTest {
     }
 
     @Test
-    void testGetPieceWhenFileIsAboveSize() throws InvalidSquareException {
+    void testGetPieceWhenFileIsAboveSize(){
         final Board board = new Board();
         final Square inputSquare = new Square(10, 0);
 
@@ -98,7 +98,7 @@ class BoardTest {
     }
 
     @Test
-    void testGetPieceWhenRankIsAboveSize() throws InvalidSquareException {
+    void testGetPieceWhenRankIsAboveSize(){
         final Board board = new Board();
         final Square inputSquare = new Square(0, 10);
 
