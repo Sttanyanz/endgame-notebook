@@ -32,12 +32,12 @@ class BoardTest {
         final Board board = new Board();
         final Piece inputPiece = new Piece(PieceName.queen, Color.white);
         final Piece expectedPiece = inputPiece;
-        final Square inputPlacement = new Square(0, 1);
-        final Square inputDestination = new Square(3, 4);
+        final Square inputOriginSquare = new Square(0, 1);
+        final Square inputDestinationSquare = new Square(3, 4);
 
-        board.setPiece(inputPlacement, inputPiece);
-        board.movePiece(inputPlacement, inputDestination);
-        final Piece actualPiece = board.getPiece(inputDestination);
+        board.setPiece(inputOriginSquare, inputPiece);
+        board.movePiece(inputOriginSquare, inputDestinationSquare);
+        final Piece actualPiece = board.getPiece(inputDestinationSquare);
 
         assertEquals(expectedPiece, actualPiece);
     }

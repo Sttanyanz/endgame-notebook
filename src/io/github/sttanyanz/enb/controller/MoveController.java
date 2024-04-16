@@ -13,83 +13,83 @@ import static java.lang.Math.*;
 public class MoveController {
 
     public void movePiece (Board board,
-                           Square placement,
-                           Square destination) throws InvalidSquareException, IllegalMoveException {
-        switch (board.getPiece(placement).getName()) {
+                           Square originSquare,
+                           Square destinationSquare) throws InvalidSquareException, IllegalMoveException {
+        switch (board.getPiece(originSquare).getName()) {
             case pawn -> {
-                if (!isPawnMoveLegal(board, placement, destination)) {
+                if (!isPawnMoveLegal(board, originSquare, destinationSquare)) {
                         throw new IllegalMoveException();
                 }
             }
             case knight -> {
-                if (!isKnightMoveLegal(board, placement, destination)) {
+                if (!isKnightMoveLegal(board, originSquare, destinationSquare)) {
                     throw new IllegalMoveException();
                 }
             }
             case bishop -> {
-                if (!isBishopMoveLegal(board, placement, destination)) {
+                if (!isBishopMoveLegal(board, originSquare, destinationSquare)) {
                     throw new IllegalMoveException();
                 }
             }
             case rook -> {
-                if (!isRookMoveLegal(board, placement, destination)) {
+                if (!isRookMoveLegal(board, originSquare, destinationSquare)) {
                     throw new IllegalMoveException();
                 }
             }
             case queen -> {
-                if (!isQueenMoveLegal(board, placement, destination)) {
+                if (!isQueenMoveLegal(board, originSquare, destinationSquare)) {
                     throw new IllegalMoveException();
                 }
             }
             case king -> {
-                if (!isKingMoveLegal(board, placement, destination)) {
+                if (!isKingMoveLegal(board, originSquare, destinationSquare)) {
                     throw new IllegalMoveException();
                 }
             }
         }
-        board.movePiece(placement, destination);
+        board.movePiece(originSquare, destinationSquare);
     }
 
     private boolean isKingMoveLegal(final Board board,
-                                    final Square placement,
-                                    final Square destination){
-        return areSquaresAdjacent(placement, destination);
+                                    final Square originSquare,
+                                    final Square destinationSquare){
+        return areSquaresAdjacent(originSquare, destinationSquare);
     }
 
     private boolean isQueenMoveLegal(final Board board,
-                                     final Square placement,
-                                     final Square destination){
-        return areSquaresOnSameFile(placement, destination)
-                || areSquaresOnSameRank(placement, destination)
-                || areSquaresOnSameDiagonal(placement, destination);
+                                     final Square originSquare,
+                                     final Square destinationSquare){
+        return areSquaresOnSameFile(originSquare, destinationSquare)
+                || areSquaresOnSameRank(originSquare, destinationSquare)
+                || areSquaresOnSameDiagonal(originSquare, destinationSquare);
     }
 
     private boolean isRookMoveLegal(final Board board,
-                                    final Square placement,
-                                    final Square destination){
-        return areSquaresOnSameFile(placement, destination)
-                || areSquaresOnSameRank(placement, destination);
+                                    final Square originSquare,
+                                    final Square destinationSquare){
+        return areSquaresOnSameFile(originSquare, destinationSquare)
+                || areSquaresOnSameRank(originSquare, destinationSquare);
     }
 
     private boolean isBishopMoveLegal(final Board board,
-                                      final Square placement,
-                                      final Square destination){
-        return areSquaresOnSameDiagonal(placement, destination);
+                                      final Square originSquare,
+                                      final Square destinationSquare){
+        return areSquaresOnSameDiagonal(originSquare, destinationSquare);
     }
 
     private boolean isKnightMoveLegal(final Board board,
-                                      final Square placement,
-                                      final Square destination){
-        return areSquaresWithinKnightReach(placement, destination);
+                                      final Square originSquare,
+                                      final Square destinationSquare){
+        return areSquaresWithinKnightReach(originSquare, destinationSquare);
     }
 
     private boolean isPawnMoveLegal(final Board board,
-                                    final Square placement,
-                                    final Square destination)
+                                    final Square originSquare,
+                                    final Square destinationSquare)
             throws InvalidSquareException
     {
-        return isDestinationInFrontOfPiece
-                (board.getPiece(placement).getColor(), placement, destination);
+        return isDestinationSquareInFrontOfPiece
+                (board.getPiece(originSquare).getColor(), originSquare, destinationSquare);
 
     }
 
@@ -124,15 +124,15 @@ public class MoveController {
                 && max(fileDisplacement, rankDisplacement) == 2;
     }
 
-    private boolean isDestinationInFrontOfPiece(final Color color,
-                                  final Square placement,
-                                  final Square destination){
-        if (!areSquaresOnSameFile(placement, destination))
+    private boolean isDestinationSquareInFrontOfPiece(final Color color,
+                                  final Square originSquare,
+                                  final Square destinationSquare){
+        if (!areSquaresOnSameFile(originSquare, destinationSquare))
             return false;
         if (color == Color.white)
-            return placement.getRank() + 1 == destination.getRank();
+            return originSquare.getRank() + 1 == destinationSquare.getRank();
         else if (color == Color.black)
-            return placement.getRank() -1 == destination.getRank();
+            return originSquare.getRank() -1 == destinationSquare.getRank();
         else
             return false;
     }

@@ -15,7 +15,7 @@ public class Board {
     }
 
     public Piece getPiece(final Square square) throws InvalidSquareException {
-        if (!boundCheckSquare(square)) {
+        if (!checkSquareBounds(square)) {
             throw new InvalidSquareException();
         }
         return board[square.getFile()][square.getRank()];
@@ -26,19 +26,19 @@ public class Board {
     }
 
     public void setPiece(final Square square, final Piece piece) throws InvalidSquareException {
-        if (!boundCheckSquare(square)) {
+        if (!checkSquareBounds(square)) {
             throw new InvalidSquareException();
         }
         board[square.getFile()][square.getRank()] = piece;
     }
 
-    public void movePiece(final Square placement, final Square destination) throws InvalidSquareException {
-        if (!boundCheckSquare(placement) || !boundCheckSquare(destination)) {
+    public void movePiece(final Square originSquare, final Square destinationSquare) throws InvalidSquareException {
+        if (!checkSquareBounds(originSquare) || !checkSquareBounds(destinationSquare)) {
             throw new InvalidSquareException();
         }
-        board[destination.getFile()][destination.getRank()] =
-                board[placement.getFile()][placement.getRank()];
-        board[placement.getFile()][placement.getRank()] = null;
+        board[destinationSquare.getFile()][destinationSquare.getRank()] =
+                board[originSquare.getFile()][originSquare.getRank()];
+        board[originSquare.getFile()][originSquare.getRank()] = null;
     }
 
     public void switchTurn () {
@@ -50,11 +50,11 @@ public class Board {
         return board[square.getFile()][square.getRank()] == null;
     }
 
-    private boolean boundCheckSquare(final Square square){
-        return boundCheckIndex(square.getFile()) && boundCheckIndex(square.getRank());
+    private boolean checkSquareBounds(final Square square){
+        return checkIndexBounds(square.getFile()) && checkIndexBounds(square.getRank());
     }
 
-    private boolean boundCheckIndex(final int index){
+    private boolean checkIndexBounds(final int index){
         return index >= MIN_COORDINATE && index < MAX_COORDINATE;
     }
 
