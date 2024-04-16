@@ -4,6 +4,7 @@ import io.github.sttanyanz.enb.model.Board;
 import io.github.sttanyanz.enb.model.Color;
 import io.github.sttanyanz.enb.model.Square;
 import io.github.sttanyanz.enb.model.exceptions.EmptySquareException;
+import io.github.sttanyanz.enb.model.exceptions.MoveOnSameSquareException;
 import io.github.sttanyanz.enb.model.exceptions.UnreachableSquareForPieceNameException;
 import io.github.sttanyanz.enb.model.exceptions.InvalidSquareException;
 
@@ -16,8 +17,7 @@ public class MoveController {
                            Square destinationSquare)
             throws InvalidSquareException,
             UnreachableSquareForPieceNameException,
-            EmptySquareException
-    {
+            EmptySquareException, MoveOnSameSquareException {
         switch (board.getPiece(originSquare).getName()) {
             case pawn -> {
                 if (!isPawnMoveLegal(board, originSquare, destinationSquare)) {
